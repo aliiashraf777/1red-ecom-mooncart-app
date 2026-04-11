@@ -2,7 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import cartReducer from './slice/cartSlice';
 import favoriteReducer from './slice/favouriteSlice';
 // import throttle from 'lodash/throttle';
-
+ 
 import { initialState as cartInitialState } from "./slice/cartSlice";
 import { initialState as favoritesInitialState } from "./slice/favouriteSlice";
 
