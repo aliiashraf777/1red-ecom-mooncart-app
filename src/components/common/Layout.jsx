@@ -4,7 +4,7 @@ import { Outlet } from 'react-router';
 import Footer from './Footer';
 import InstagramPost, { BottomFourStep } from '../hero/InstagramPost';
 
-
+ 
 export const Layout = () => {
     return (
         <div>
