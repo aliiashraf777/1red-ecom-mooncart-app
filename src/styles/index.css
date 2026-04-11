@@ -1,0 +1,329 @@
+@import 'tailwindcss';
+
+@layer base {
+    :root {
+        /* --color-primary: #24262b; */
+        --primary-rgb: 36 38 43;
+        /* --color-primary-gray: #53626f; */
+        --primary-gray-rgb: 83 98 111;
+        /* --color-primary-green: #0D775E; */
+        --primary-green-rgb: 13 119 94;
+        /* --color-red-gray: #444; */
+        --red-gray-rgb: 68 68 68;
+        /* --color-white-100: #f3f3f3; */
+        --white-100-rgb: 243 243 243;
+    }
+}
+
+/* 🔥 Tailwind v4 THEME REGISTRATION */
+@layer theme {
+    @theme {
+        /* --color-primary: rgb(var(--color-primary) / <alpha-value>);
+        --color-primary-gray: rgb(var(--color-primary-gray) / <alpha-value>);
+        --color-primary-green: rgb(var(--color-primary-green) / <alpha-value>);
+        --color-red-gray: rgb(var(--color-red-gray) / <alpha-value>);
+        --color-white-100: rgb(var(--color-white-100) / <alpha-value>); */
+
+        /* --color-primary: rgb(var(--primary-rgb) / <alpha-value>);
+        --color-primary-gray: rgb(var(--primary-gray-rgb) / <alpha-value>);
+        --color-primary-green: rgb(var(--primary-green-rgb) / <alpha-value>);
+        --color-red-gray: rgb(var(--red-gray-rgb) / <alpha-value>);
+        --color-white-100: rgb(var(--white-100-rgb) / <alpha-value>); */
+
+        --color-primary: rgb(var(--primary-rgb) / 1);
+        --color-primary-gray: rgb(var(--primary-gray-rgb) / 1);
+        --color-primary-green: rgb(var(--primary-green-rgb) / 1);
+        --color-red-gray: rgb(var(--red-gray-rgb) / 1);
+        --color-white-100: rgb(var(--white-100-rgb) / 1);
+    }
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+@layer components {
+    .container {
+        @apply w-full px-8 lg:p-0 lg:w-3/4 m-auto;
+    }
+
+    .span {
+        @apply text-[12px] font-semibold text-primary-gray;
+    }
+
+    .a {
+        @apply text-[15px] font-[400] text-red-gray;
+    }
+
+    /* Buttons */
+    .batch-icon {
+        @apply w-4 h-4;
+    }
+
+    .discount-btn {
+        @apply px-4 py-2 bg-primary text-white text-xs font-semibold;
+    }
+
+    .featured-btn {
+        @apply px-4 py-2 bg-primary-green text-white text-xs font-semibold;
+    }
+
+    .slider-btn {
+        @apply w-16 h-16 bg-primary text-white flex items-center justify-center
+    }
+}
+
+.btn {
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+    line-height: 24px;
+    padding: 12px 30px;
+    border-radius: 0;
+    border: 1px solid #000;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+.btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -100%;
+    width: 200%;
+    height: 100%;
+    z-index: 1;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+        border-right 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
+    border-right: 2px solid #fff;
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.btn-primary {
+    background: #000;
+    color: #fff;
+}
+
+.btn-secondary {
+    background: transparent;
+    color: #000;
+}
+
+.btn-secondary:hover {
+    background-color: #000;
+    color: #fff;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+        border-right 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-primary:hover::after,
+.btn-secondary:hover:after {
+    right: 100%;
+    opacity: 1;
+}
+
+
+/* navbar */
+.menu-container {
+    background-color: #24262b;
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+    z-index: 100;
+    margin-top: 10px;
+}
+
+.menu-container.open {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.menu-container.close {
+    opacity: 0;
+    transform: translateX(-100%);
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 4;
+    transition: background-color 0.3s ease;
+}
+
+.header.scrolled {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    animation: fadeInDown 0.5s ease;
+    z-index: 10;
+}
+
+@keyframes fadeInDown {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+/* product */
+.product-btn {
+    padding: 5px 11px;
+    font-size: 12px;
+}
+
+.product .images {
+    position: relative;
+    overflow: hidden;
+}
+
+.product.card .product-btns {
+    opacity: 0;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.product.card:hover .product-btns {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* modal overlay */
+.modal-overlay-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 50000;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    height: 500px;
+    /* height: 65vh; */
+    background-color: white;
+    z-index: 50001;
+}
+
+.slideProduct .images {
+    position: relative;
+    overflow: hidden;
+    margin: 10px;
+}
+
+/* testimonials */
+.testimonials {
+    position: relative;
+    background-image: url('../assets/images/hero/bg1.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 70vh;
+}
+
+.testimonials::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70vh;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+/* product details page custom paging css */
+.slick-dots {
+    margin-bottom: 100px !important;
+}
+
+.slick-dots li {
+    width: 69px !important;
+}
+
+.slick-slider {
+    z-index: 1;
+}
+
+
+/* cart */
+.cartModal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 35%;
+    height: 100vh;
+    background-color: white;
+    z-index: 1000000 !important;
+    animation: slideIn 0.3s forwards;
+    /*slide in animation*/
+    transform: translateX(100%);
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+.cartModal.cartClose {
+    animation: slideOut 0.3s forwards
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(100%);
+    }
+}
+
+.cartOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 999999 !important;
+}
+
+
+/* line contianer */
+.line-container {
+    display: flex;
+}
+
+.line {
+    flex: 1;
+    height: 2px;
+    background-color: rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+}
+
+.line.active {
+    background-color: #0d775e;
+}
