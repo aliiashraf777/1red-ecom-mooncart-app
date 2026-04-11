@@ -3,7 +3,7 @@ import { heroList } from "../../assets/data/data"
 import { BodyOne, Caption, Title } from "../common/CustomComponents"
 import { useState } from "react"
 import Slider from 'react-slick'
-
+ 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css"; 
 
