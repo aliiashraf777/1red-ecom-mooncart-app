@@ -1,7 +1,7 @@
 import { Caption, Title } from "../../components/common/CustomComponents"
 import { ProductSlideCard } from "../../components/product/ProductSlider"
 import { Banner, Hero, InstagramPost, Product, ProductSlider, ShippingInfo, Testimonials } from "../../router"
-
+ 
 
 export const Home = () => {
   return (
