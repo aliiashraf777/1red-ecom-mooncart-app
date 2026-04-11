@@ -6,7 +6,7 @@ import { cartReducerActions, selectCartItems, selectTotalPrice, selectTotalQty }
 import { NavLink } from "react-router";
 import { favoriteReducerActions, selectFavoriteItems, selectFavoriteState, selectTotalFavorites } from "../../redux/slice/favouriteSlice";
 
-
+ 
 const CartModal = () => {
 
     const [isCartOpen, setIsCartOpen] = useState(false);
