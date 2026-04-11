@@ -1,7 +1,7 @@
 import LogoImg from '../../assets/common/logo.png';
 import { menuLists } from '../../assets/data/data';
 import { Badges, CustomLink, CustomNavLink } from './CustomComponents';
-
+ 
 import { IoCartOutline, IoHeartOutline, IoSearchOutline } from "react-icons/io5";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 import { useEffect, useRef, useState } from 'react';
