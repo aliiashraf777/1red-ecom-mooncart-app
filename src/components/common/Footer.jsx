@@ -1,7 +1,7 @@
 import { footerLinks } from "../../assets/data/data"
 import { logo } from "../../assets/images"
 import { BodyOne, Caption, CustomLink, Title } from "./CustomComponents"
-
+ 
 
 const Footer = () => {
   return (
