@@ -8,7 +8,7 @@ export { default as Footer } from "../components/common/Footer";
 
 export { default as InstagramPost } from "../components/hero/InstagramPost";
 
-export { default as Testimonials } from "../components/hero/TEstimonials";
+export { default as Testimonials } from "../components/hero/Testimonials";
 
 export { default as ProductSlider } from "../components/product/ProductSlider";
 
